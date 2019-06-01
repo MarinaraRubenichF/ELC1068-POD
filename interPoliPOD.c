@@ -73,11 +73,11 @@ int comparaDatas(struct diaMesAno * comp1, struct diaMesAno * comp2){
 
 struct arquivo{
 	char *nome;	//Nome do Arquivo
-	int blocos, posBuffer, simulados, numRegistros, posicao;	//Blocos existentes em cada fita, PosiÁ„o do registro no inÌcio do Buffer (regi„o da RAM, armazena temp dados em movimento),  
-	//N˙mero de Registros no Arquivo, Posicao do registro a ser lido, 
+	int blocos, posBuffer, simulados, numRegistros, posicao;	//Blocos existentes em cada fita, Posi√ß√£o do registro no in√≠cio do Buffer (regi√£o da RAM, armazena temp dados em movimento),  
+	//N√∫mero de Registros no Arquivo, Posicao do registro a ser lido, 
 	struct diaMesAno buffer[TAM];
 	struct diaMesAno ultimo;
-	fpos_t fpost; //Especifica uma posiÁ„o dentro do arquivo e grava-o na fpost (ponteiro para fpost_t)
+	fpos_t fpost; //Especifica uma posi√ß√£o dentro do arquivo e grava-o na fpost (ponteiro para fpost_t)
 };
 
 int carregaArquivo(struct arquivo * meuArquivo){
@@ -98,7 +98,7 @@ int carregaArquivo(struct arquivo * meuArquivo){
 		fclose(fileStream);
 	}
 	else {
-		printf("\tO arquivo n„o pode ser aberto!\n");
+		printf("\tO arquivo n√£o pode ser aberto!\n");
 		return -1;
 	}
 }
@@ -129,7 +129,7 @@ void escreveRegistro(struct arquivo * meuArquivo, struct diaMesAno registro){
 			contaEscritas++;
 		}
 		else {
-			printf("O arquivo de fita n„o pode ser aberto!\n");
+			printf("O arquivo de fita n√£o pode ser aberto!\n");
 			return;
 		}
 	}
@@ -246,7 +246,7 @@ void acessaPonteiro(struct arquivo * meuArquivo){
 		meuArquivo->posBuffer = 0;
 	}
 	else {
-		printf("\tO arquivo de fita n„o pode ser aberto! %s\n", meuArquivo->nome);
+		printf("\tO arquivo de fita n√£o pode ser aberto! %s\n", meuArquivo->nome);
 		return;
 	}
 }
@@ -453,23 +453,23 @@ int main(){
 	printf("\n");
 	
 	if(resposta == 1 || resposta == 2){
-		printf("\tDigite o n˙mero de Registros que o arquivo vai conter:\n\tREGISTROS => ");
+		printf("\tDigite o n√∫mero de Registros que o arquivo vai conter:\n\tREGISTROS => ");
 		scanf("%d", &nRegistros);
 		printf("\n");
 	}
 	
 	switch(resposta){
-	case 1: {															//Dane z klawiatury
+	case 1: {
 		struct diaMesAno * data;
 		FILE * fileStream;
 		data = (struct diaMesAno *)malloc(nRegistros * sizeof(struct diaMesAno));
 		
-		printf("\tOP«√O 1\n\tInsira as datas no formato: DD MM AAAA;\n");
+		printf("\tOP√á√ÉO 1\n\tInsira as datas no formato: DD MM AAAA;\n");
 		for (i = 0; i < nRegistros; i++) {
 			int d, m, a;
 			scanf("%u%u%u", &d, &m, &a);
 			if(validaData(d, m, a) == 0){
-				printf("\tData fornecida inv·lida!\n");
+				printf("\tData fornecida inv√°lida!\n");
 				i--;
 			}
 			else {
@@ -489,14 +489,14 @@ int main(){
 			fclose(fileStream);
 		}
 		else {
-			printf("\tO arquivo n„o pode ser criado!\n");
+			printf("\tO arquivo n√£o pode ser criado!\n");
 			
 			free(data);
 			return 0;
 		}
 		break;
 	}
-	case 2: {		//Ggera data randomicamente
+	case 2: {		//Gera datas randomicamente
 		FILE * fileStream;
 		srand(time(NULL));
 		struct diaMesAno * data; int i;
@@ -516,7 +516,7 @@ int main(){
 			fclose(fileStream);
 		}
 		else {
-			printf("\tO arquivo n„o pode ser criado!\n");
+			printf("\tO arquivo n√£o pode ser criado!\n");
 			
 			free(data);
 			return 0;
@@ -532,9 +532,9 @@ int main(){
 	
 	printf("\n\t...................................\n");
 	printf("\t\tDADOS:\n");
-	printf("\t\tN˙mero de leituras: %d\n", contaLeituras);
-	printf("\t\tN˙mero de entradas: %d\n", contaEscritas);
-	printf("\t\tN˙mero de fases: %d\n", contaFases);
+	printf("\t\tN√∫mero de leituras: %d\n", contaLeituras);
+	printf("\t\tN√∫mero de entradas: %d\n", contaEscritas);
+	printf("\t\tN√∫mero de fases: %d\n", contaFases);
 	printf("\t...................................");
 
 	getch();
