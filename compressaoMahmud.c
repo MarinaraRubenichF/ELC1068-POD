@@ -17,7 +17,7 @@ void imprimeVetor(int *vetor, int inicio, int fim){
     
     printf("\t\t\t");
     for(i = inicio; i <= fim; i++){
-        printf("%d", vetor[i]);
+        printf("%d ", vetor[i]);
     }
 }
 
