@@ -83,7 +83,7 @@ int arrayAleatorio(int *array, int tamVetor){
 int geraYRandom(int *y, int tamVetor, int *array){
     int i;
     
-    for(i = 0; i < tamVetor; i++){
+    for(i = 1; i < tamVetor; i++){
         int random = serieRandomica(0, tamVetor);
         y[i] = array[random];
     }
@@ -132,7 +132,7 @@ int vetorZ(int *z, int tamVetor, int *x, int *y){
 	return *z;
 }
 
-// RESULTADO DA COMPACTACAO
+//RESULTADO DA COMPACTACAO
 int compactacao(int *compacta, int tamVetor, int *z){
     int i, j = 0;
 
@@ -146,6 +146,7 @@ int compactacao(int *compacta, int tamVetor, int *z){
     return *compacta;
 }
 
+//RESULTADO DA DESCOMPACTACAO
 int descompactacao(int *descompacta, int tamVetor, int *compacta){
     int i, j = 0;
 
